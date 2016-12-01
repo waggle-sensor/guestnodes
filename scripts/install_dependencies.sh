@@ -8,6 +8,7 @@ pip install crcmod
 
 # python3
 apt install python3-psutil
+apt-get install -y python3-pyaudio
 pip3 install crcmod
 pip3 install pyserial
 pip3 install pyzmq

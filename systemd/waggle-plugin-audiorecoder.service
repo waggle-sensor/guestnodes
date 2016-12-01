@@ -1,0 +1,11 @@
+[Unit]
+Description=audio recoder demo.
+After=network.target waggle-epoch.service rabbitmq-server.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/usr/lib/waggle/plugin_manager/plugins/audiorecoder/
+ExecStart=/usr/lib/waggle/plugin_manager/plugins/audiorecoder/audiorecoder.py
+
+[Install]
+WantedBy=multi-user.target
