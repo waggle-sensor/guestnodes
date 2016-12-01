@@ -28,7 +28,7 @@ def get_cam_index(path, default=0):
     return idx
 
 top_cam_idx = get_cam_index('/etc/waggle/waggle_cam_idx_top', default=0)
-bottom_cam_idx = get_cam_index('/etc/waggle/waggle_cam_idx_top', default=1)
+bottom_cam_idx = get_cam_index('/etc/waggle/waggle_cam_idx_bottom', default=1)
 
 class FaceDetectionPlugin(waggle.pipeline.Plugin):
 
