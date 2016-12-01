@@ -17,7 +17,7 @@ except ImportError:
 
 def get_cam_index(path, default=0):
     idx = default
-    if os.isfile(path):
+    if os.path.isfile(path):
         try:
             with open(path, 'r') as f:
                 data = f.read()

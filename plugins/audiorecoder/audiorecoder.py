@@ -7,10 +7,11 @@ import waggle.pipeline
 import time
 import pyaudio
 import wave
+import os
 
 def get_mic_name(path, default='USB'):
     name = default
-    if os.isfile(path):
+    if os.path.isfile(path):
         try:
             with open(path, 'r') as f:
                 data = f.read()
@@ -29,8 +30,6 @@ class AudioRecoderPlugin(waggle.pipeline.Plugin):
 
 	def run(self):
 		logging = waggle.logging.getLogger('audio_recoder')
-		# The device should be found using other way, this is hardcorded way
-		='waggle_microphone'
 
 		FORMAT = pyaudio.paInt16
 		CHANNELS = 1
