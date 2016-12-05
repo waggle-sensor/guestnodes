@@ -2,7 +2,7 @@
 
 This contains openCV 3.1.0 binaries and library for python3.5 developers. This may work only in a specific platform and does not guarantee on other system configurations.
 
-The target configurations are
+The target configuration is
 * 32-bit ARM-based CPU
 * Ubuntu 16.04
 * Python 3.5
