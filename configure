@@ -29,6 +29,8 @@ fi
 
 ln -sf /usr/lib/waggle/plugin_manager/waggle-plugins.py /usr/bin/waggle-plugins
 
+ln -sf ${current_dir}/wagglepluginadmin.py /usr/bin/wagglepluginadmin
+
 #change this to offline install
 ./scripts/install_dependencies.sh
 
