@@ -21,14 +21,22 @@ def waggle_help():
 	print("   exit: terminate the program")
 
 def do_command_output(cmd):
-	ret, output = subprocess.getstatusoutput(cmd)
-	if ret != 0:
-		return []
-	return output.split('\n')
+	try:
+		ret, output = subprocess.getstatusoutput(cmd)
+		if ret != 0:
+			return []
+		return output.split('\n')
+	except AttributeError:
+		print("The system does not support the command %s" % cmd)
+	return []
 
 def do_command(cmd):
-	ret = subprocess.run(cmd.split())
-	return ret.returncode
+	try:
+		ret = subprocess.run(cmd.split())
+		return ret.returncode
+	except AttributeError:
+		print("The system does not support the command %s" % cmd)
+	return -1
 
 def get_all_plugins():
 	CMD = 'systemctl list-unit-files waggle-plugin-* | grep waggle-plugin-'
@@ -167,6 +175,10 @@ if __name__ == "__main__":
 	if args.commands:
 		cmd = args.commands[0]
 		arg = args.commands[1:]
+		for unit in arg:
+			if unit.isdigit():
+				print("Please use interactive session or enter name of the plugin")
+				sys.exit(1)
 		func = pm.commands[cmd]
 		ret, msg = func(arg)
 		sys.exit(1)
